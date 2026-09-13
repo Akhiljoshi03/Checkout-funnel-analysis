@@ -1,4 +1,4 @@
-# Project 1 — Checkout Funnel Root-Cause Analysis
+#  Checkout Funnel Root-Cause Analysis
 **Work streams demonstrated:** Analytics, Problem Solving
 **Focus area:** Storefront Product (Customer Experience)
 
@@ -12,12 +12,7 @@ testable hypothesis about the cause, and lays out a validation + fix plan.
 This is the kind of "why did a number move and what do we do about it"
 exercise a PM does weekly — not just a chart, but a decision.
 
-## Why this project for this JD
-The JD's Analytics stream asks for exactly this: "dig deep into product
-data to understand user behaviour, run root-cause analysis on friction
-points... track KPIs for feature success." This project shows the full
-loop — data → segment cut → hypothesis → validation plan → success metric
-— rather than stopping at "here's a chart."
+
 
 ## How to read this project
 1. Start with **`PRD_recommendations.md`** — the actual PM deliverable.
