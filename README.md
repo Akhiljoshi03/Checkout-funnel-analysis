@@ -1,45 +1,28 @@
-# Project 1 — Checkout Funnel Root-Cause Analysis
-**Work streams demonstrated:** Analytics, Problem Solving
-**Focus area:** Storefront Product (Customer Experience)
+Checkout Funnel Root-Cause Analysis
+A data-driven root-cause analysis of an e-commerce checkout funnel (Cart → Address → Payment → Order-Confirmed). This project isolates a critical conversion drop-off, quantifies the revenue at risk, and outlines a strategic product intervention to resolve the friction point.
 
-## What this is
-A funnel analysis of the Cart → Address → Payment → Order-Confirmed flow,
-segmented by device and coupon usage, that isolates a specific
-16.7-percentage-point conversion drop in one segment (Android + coupon
-users, starting a specific date), quantifies the revenue at risk, forms a
-testable hypothesis about the cause, and lays out a validation + fix plan.
+The Core Investigation
+When top-line metrics drop, reporting the dip is only the first step. By segmenting funnel metrics across device types, date cohorts, and promotional behaviors, this analysis successfully isolates a specific 16.7-percentage-point conversion drop tied specifically to Android users attempting to apply coupons.
 
-This is the kind of "why did a number move and what do we do about it"
-exercise a PM does weekly — not just a chart, but a decision.
+Rather than stopping at a chart, this project bridges data analytics and product strategy by forming a testable hypothesis about the user friction and laying out a clear validation and engineering fix plan.
 
-## Why this project for this JD
-The JD's Analytics stream asks for exactly this: "dig deep into product
-data to understand user behaviour, run root-cause analysis on friction
-points... track KPIs for feature success." This project shows the full
-loop — data → segment cut → hypothesis → validation plan → success metric
-— rather than stopping at "here's a chart."
+Repository Structure
+PRD_recommendations.md (Start Here) — The core Product Management deliverable. This document translates the data findings into actionable insights, detailing the root-cause hypothesis, validation steps, and proposed product fixes.
 
-## How to read this project
-1. Start with **`PRD_recommendations.md`** — the actual PM deliverable.
-2. `analysis/generate_data.py` — reproducibly generates the sample dataset
-   (synthetic, with a deliberately injected anomaly so the analysis has a
-   real signal to find — see note on synthetic data below).
-3. `analysis/funnel_analysis.py` — the analysis: overall funnel, segment
-   cuts, before/after comparison, revenue-impact estimate, and chart
-   generation.
-4. `visuals/` — the three charts referenced in the PRD.
-5. `data/checkout_funnel_daily.csv` — the underlying dataset.
+analysis/funnel_analysis.py — The analytical engine. It calculates overall funnel conversion, processes the segment cuts, compares before/after cohorts, estimates the overall revenue impact, and generates data visualizations.
 
-## Run it yourself
-```bash
+analysis/generate_data.py — A reproducible script that generates the synthetic dataset. (An anomaly is deliberately injected into this script so the analysis has a real signal to isolate).
+
+visuals/ — The output folder for the charts referenced in the PRD.
+
+data/checkout_funnel_daily.csv — The underlying raw dataset.
+
+Local Execution
+To run the analysis and generate the visuals yourself, use the following terminal commands:
+
+Bash
 cd analysis
-python3 generate_data.py     # regenerates data/checkout_funnel_daily.csv
-python3 funnel_analysis.py   # prints findings, regenerates visuals/
-```
-
-## Note on data
-This uses a synthetically generated dataset (not real Myntra data) because
-production analytics data isn't publicly available. The generator script
-is included and commented so it's fully transparent what's real analysis
-vs. what's simulated input — the value being demonstrated is the analysis
-methodology and PM judgment, not the specific numbers.
+python3 generate_data.py    # Regenerates data/checkout_funnel_daily.csv
+python3 funnel_analysis.py  # Prints findings to console and regenerates charts in visuals/
+Note on Methodology
+Because production e-commerce data is proprietary, this project utilizes a synthetically generated dataset. The generator script is included and heavily commented to maintain complete transparency regarding what is simulated input versus what is analytical output. The primary focus of this repository is to demonstrate rigorous analytical methodology, cohort
